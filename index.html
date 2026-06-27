@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Jenard Arches | Portfolio</title>
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+        <style>
+
+:root{
+    --bg:#050505;
+    --card:#111111;
+    --card2:#181818;
+    --border:#27272A;
+    --accent:#8B5CF6;
+    --text:#ffffff;
+    --muted:#A1A1AA;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+.glow{
+    position:fixed;
+    width:400px;
+    height:400px;
+    background:radial-gradient(circle,var(--accent),transparent 70%);
+    filter:blur(120px);
+    opacity:.15;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:999;
+    backdrop-filter:blur(15px);
+    background:rgba(0,0,0,.7);
+    border-bottom:1px solid var(--border);
+}
+
+.nav-content{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:700;
+}
+
+.logo span{
+    color:var(--accent);
+}
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--accent);
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+}
+
+.hero-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+}
+
+.hero img{
+    width:100%;
+    max-width:420px;
+    border-radius:25px;
+    border:2px solid var(--border);
+}
+
+.hero-text h1{
+    font-size:70px;
+    line-height:1;
+    margin-bottom:15px;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#fff,var(--accent));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-text h2{
+    color:var(--muted);
+    margin-bottom:25px;
+}
+
+.hero-text p{
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+}
+
+.btn{
+    padding:14px 28px;
+    border-radius:12px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.primary{
+    background:var(--accent);
+    color:white;
+}
+
+.secondary{
+    border:1px solid var(--border);
+    color:white;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+section{
+    padding:100px 0;
+}
+
+.section-title{
+    font-size:42px;
+    margin-bottom:50px;
+}
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 2fr;
+    gap:50px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:30px;
+}
+
+.timeline{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.job h3{
+    color:var(--accent);
+    margin-bottom:8px;
+}
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.skill-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:25px;
+    transition:.3s;
+}
+
+.skill-card:hover{
+    transform:translateY(-8px);
+}
+
+.skill-card h3{
+    margin-bottom:15px;
+    color:var(--accent);
+}
+
+.skill-card ul{
+    list-style:none;
+}
+
+.skill-card li{
+    color:var(--muted);
+    margin-bottom:8px;
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+.project{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:25px;
+    transition:.3s;
+}
+
+.project:hover{
+    transform:translateY(-10px);
+}
+
+.project h3{
+    color:var(--accent);
+    margin-bottom:15px;
+}
+
+.project p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.stat{
+    text-align:center;
+    background:var(--card);
+    padding:30px;
+    border-radius:20px;
+    border:1px solid var(--border);
+}
+
+.stat h2{
+    color:var(--accent);
+    font-size:40px;
+}
+
+.contact{
+    text-align:center;
+}
+
+.contact-card{
+    max-width:700px;
+    margin:auto;
+}
+
+.contact-links{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.social{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    min-width:180px;
+    padding:16px 24px;
+    border-radius:14px;
+    background:#111111;
+    border:1px solid #27272A;
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.social:hover{
+    background:#8B5CF6;
+    border-color:#8B5CF6;
+    transform:translateY(-5px);
+    box-shadow:0 10px 30px rgba(139,92,246,.35);
+}
+
+.social i{
+    font-size:18px;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:var(--muted);
+    border-top:1px solid var(--border);
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media(max-width:900px){
+
+.hero-content,
+.about{
+    grid-template-columns:1fr;
+    text-align:center;
+}
+
+.hero img{
+    margin:auto;
+}
+
+.hero-text h1{
+    font-size:48px;
+}
+
+.stats{
+    grid-template-columns:repeat(2,1fr);
+}
+
+nav ul{
+    display:none;
+}
+
+}
+
+</style>
+    </head>
+    <body>
+
+        <div class="glow"></div>
+
+        <nav>
+            <div class="nav-content">
+                <div class="logo">Jenard Perucho Arches<span> Portfolio</span></div>
+
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>           
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="container">
+
+                <div class="hero-content">
+
+                    <div>
+                        <img src="C:\Users\User\Downloads\image.png" alt="Jenard">
+                    </div>
+
+                    <div class="hero-text">
+                        <h1 class="gradient">Jenard Arches</h1>
+
+                        <h2 id="typing"></h2>
+
+                        <p>
+                            Junior Developer passionate about creating modern
+                            web and mobile applications.
+                            Experienced in Laravel, Flutter, MySQL, UI/UX
+                            Design, Graphic Design, and Government Digital
+                            Solutions.
+                        </p>
+
+                        <div class="buttons">
+                            <a href="#projects" class="btn primary">View
+                                Projects</a>
+                            <a href="#contact" class="btn secondary">Contact
+                                Me</a>
+                            <a href="Jenard-Arches-CV.pdf" download
+                                class="btn secondary">
+                                <i class="fa-solid fa-download"></i> Download CV
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section id="about" class="reveal">
+            <div class="container">
+
+                <h2 class="section-title">About Me</h2>
+
+                <div class="about">
+
+                    <div class="card">
+                        <h3>Education</h3>
+                        <br>
+                        <p>BS Information Security</p>
+                        <p>Bestlink Colleges of the Philippines</p>
+                    </div>
+
+                    <div class="card">
+                        <p>
+                            Bachelor of Science in Information Security graduate
+                            with practical experience in software development,
+                            system maintenance, mobile application development,
+                            database management, and graphic design.
+                            <br><br>
+                            Developed a Credit Leave Management System and
+                            Document Tracking Application for the Quezon City
+                            Assessor's Office, helping improve efficiency and
+                            transparency within government operations.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section id="experience" class="reveal">
+            <div class="container">
+
+                <h2 class="section-title">Experience</h2>
+
+                <div class="timeline">
+
+                    <div class="card job">
+                        <h3>Quezon City Hall (Office of the City Assessor)</h3>
+                        <h4>Encoder / Junior Developer (2024 - 2026)</h4>
+                        <br>
+                        <p>Developed Credit Leave Management System and Document
+                            Tracking Application.</p>
+                    </div>
+
+                    <div class="card job">
+                        <h3>Shobe Printing Services</h3>
+                        <h4>Graphic Designer (2024)</h4>
+                        <br>
+                        <p>Created branding materials, marketing graphics and
+                            print designs.</p>
+                    </div>
+
+                    <div class="card job">
+                        <h3>Boba Vibes</h3>
+                        <h4>Barista (2022 - 2024)</h4>
+                        <br>
+                        <p>Customer service, inventory management and
+                            operational support.</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section id="skills" class="reveal">
+            <div class="container">
+
+                <h2 class="section-title">Technical Skills</h2>
+
+                <div class="skills-grid">
+
+                    <div class="skill-card">
+                        <h3>Frontend</h3>
+                        <ul>
+                            <li>HTML 5</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Backend</h3>
+                        <ul>
+                            <li>Laravel</li>
+                            <li>MySQL</li>
+                            <li>Microsoft SQL Server</li>  
+                            <li>PostgreSQL</li>
+                            <li>Firebase</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Mobile</h3>
+                        <ul>
+                            <li>Flutter</li>
+                             <li>Android Studio</li>
+                            <li>Java</li>
+                            <li>Kotlin</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Languages</h3>
+                        <ul>
+                            <li>C#</li>
+                            <li>C++</li>
+                            <li>Visual Basic</li>
+                            <li>Java</li>
+                            <li>Dart</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section id="projects" class="reveal">
+            <div class="container">
+
+                <h2 class="section-title">Projects</h2>
+
+                <div class="projects">
+
+                    <div class="project">
+                        <h3>Credit Leave Management System</h3>
+                        <p>
+                            Web-based leave management platform that allows
+                            employees to apply for leave online and monitor
+                            available leave credits.
+                        </p>
+                    </div>
+
+                    <div class="project">
+                        <h3>Document Tracking Application</h3>
+                        <p>
+                            Digital tracking system for monitoring official
+                            government documents and records.
+                        </p>
+                    </div>
+
+                    <div class="project">
+                        <h3>Mobile Photobooth App</h3>
+                        <p>
+                            Android application supporting image capture, QR
+                            integration and thermal printing.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="reveal">
+            <div class="container">
+
+                <div class="stats">
+
+                    <div class="stat">
+                        <h2>2+</h2>
+                        <p>Years Experience</p>
+                    </div>
+
+                    <div class="stat">
+                        <h2>10+</h2>
+                        <p>Technologies</p>
+                    </div>
+
+                    <div class="stat">
+                        <h2>3+</h2>
+                        <p>Major Projects</p>
+                    </div>
+
+                    <div class="stat">
+                        <h2>100%</h2>
+                        <p>Passion</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact" class="contact reveal">
+            <div class="container">
+
+                <h2 class="section-title">Let's Work Together</h2>
+
+                <div class="card contact-card">
+
+                    <div style="margin-bottom:40px;">
+
+                        <h3 style="font-size:32px;margin-bottom:10px;">
+                            Ready to Build Something Great?
+                        </h3>
+
+                        <p
+                            style="max-width:600px;margin:auto;color:#A1A1AA;line-height:1.8;">
+                            Whether you need a web application, mobile
+                            application,
+                            UI/UX design, graphic design, or system development,
+                            I'm always open to discussing new opportunities and
+                            ideas.
+                        </p>
+
+                    </div>
+
+                    <div class="contact-links">
+
+                        <a class="social"
+                            href="https://mail.google.com/mail/?view=cm&fs=1&to=jenardarches09@gmail.com&su=Lets work+together&body=Hi+Jenard,"
+                            target="_blank">
+                            <i class="fa-solid fa-envelope"></i>
+                            Email Me
+                        </a>
+
+                        <a class="social" href="tel:+639619652988">
+                            <i class="fa-solid fa-phone"></i>
+                            Call Me
+                        </a>
+
+                        <a class="social"
+                            href="sms:+639619652988?body=Hello Jenard, I found your portfolio.">
+                            <i class="fa-solid fa-message"></i>
+                            Text Me
+                        </a>
+
+                        <a class="social"
+                            href="https://www.facebook.com/Butawisreal"
+                            target="_blank">
+                            <i class="fa-brands fa-facebook-f"></i>
+                            Facebook
+                        </a>
+
+                        <a class="social" href="https://m.me/Butawisreal"
+                            target="_blank">
+                            <i class="fa-brands fa-facebook-messenger"></i>
+                            Messenger
+                        </a>
+
+                        <a class="social"
+                            href="https://www.linkedin.com/in/jenard-arches-674130355"
+                            target="_blank">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                            LinkedIn
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <footer>
+            © 2026 Jenard Arches • Turning coffee into clean, functional logic.
+        </footer>
+
+        <script>
+
+const glow = document.querySelector('.glow');
+
+document.addEventListener('mousemove',(e)=>{
+    glow.style.left=e.clientX-200+'px';
+    glow.style.top=e.clientY-200+'px';
+});
+
+const words=[
+'Junior Developer',
+'Graphic Designer',
+'Mobile App Developer'
+
+];
+
+let i=0;
+let j=0;
+let current='';
+let isDeleting=false;
+
+function type(){
+
+current=words[i];
+
+if(!isDeleting){
+document.getElementById('typing').innerHTML=current.substring(0,j++);
+if(j>current.length+1){
+isDeleting=true;
+setTimeout(type,1000);
+return;
+}
+}
+else{
+document.getElementById('typing').innerHTML=current.substring(0,j--);
+if(j===0){
+isDeleting=false;
+i=(i+1)%words.length;
+}
+}
+
+setTimeout(type,isDeleting?50:100);
+
+}
+
+type();
+
+const reveals=document.querySelectorAll('.reveal');
+
+window.addEventListener('scroll',()=>{
+
+reveals.forEach(el=>{
+
+const windowHeight=window.innerHeight;
+const top=el.getBoundingClientRect().top;
+
+if(top<windowHeight-100){
+el.classList.add('active');
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
